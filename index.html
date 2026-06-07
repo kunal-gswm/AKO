@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AKO Labs — Digital Experiences, Redefined</title>
+  <meta name="description" content="AKO Labs crafts cinematic digital experiences that demand attention. Every pixel carries intent. Every interaction tells a story.">
+  <meta name="theme-color" content="#0a0c12">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ── Custom Cursor ── -->
+  <div id="cursor" aria-hidden="true">
+    <div id="cursor-dot"></div>
+    <span id="cursor-text" class="display-font"></span>
+  </div>
+
+  <!-- ── Loader ── -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader__bar"></div>
+    <span class="loader__text display-font">AKO</span>
+  </div>
+
+  <!-- ── Film Grain Overlay ── -->
+  <svg id="grain" aria-hidden="true">
+    <filter id="grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <!-- ── Scroll Progress ── -->
+  <div id="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__fill"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       THE NARRATIVE
+       ══════════════════════════════════════════════ -->
+  <main id="narrative">
+
+    <!-- ═══ ACT I — THE PROBLEM ═══ -->
+
+    <div class="scene scene--opening">
+      <div class="scene__grid">
+        <span class="edge-meta">SCENE.01 — DIAGNOSIS</span>
+        <div class="scene__editorial col-3-11 align-center">
+          <p class="type-hero display-font" data-reveal="fade-up">
+            The internet is full<br>
+            of things nobody<br>
+            remembers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats centered aggressively across grid -->
+    <div class="scene scene--stat">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 align-center push-down">
+          <div class="stat" data-reveal="fade-up">
+            <span class="stat__number type-numeral display-font">73<span class="stat__symbol">%</span></span>
+            <span class="stat__label">of websites are forgotten<br>within 48 hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene scene--stat">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 align-center push-down">
+          <div class="stat" data-reveal="fade-up">
+            <span class="stat__number type-numeral display-font"><span class="stat__symbol stat__symbol--pre">$</span>2.6<span class="stat__symbol">M</span></span>
+            <span class="stat__label">average annual cost of<br>digital mediocrity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene scene--stat scene--stat-last">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 align-center push-down">
+          <div class="stat" data-reveal="fade-up">
+            <span class="stat__number type-numeral display-font">94<span class="stat__symbol">%</span></span>
+            <span class="stat__label">of first impressions<br>are design-driven</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Massive blank space, then a floating pull quote -->
+    <div class="scene scene--bridge">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 align-center push-down">
+          <p class="type-hero display-font" data-reveal="fade-up">
+            What if someone refused<br>
+            to build another satisfactory?
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══ ACT II — THE ARRIVAL ═══ -->
+
+    <div class="scene scene--reveal">
+      <div class="doors" aria-hidden="true">
+        <div class="door door--left"></div>
+        <div class="door door--right"></div>
+      </div>
+      <div class="scene__grid">
+        <span class="edge-meta" style="top: 25vh;">SCENE.02 — THE ARRIVAL</span>
+        <div class="scene__editorial col-3-11 flex-col align-center">
+          <h1 id="brand-name" class="type-reveal display-font" data-split-reveal>AKO Labs</h1>
+          <div class="brand-underline" id="brand-underline"></div>
+          <p class="brand-tagline" id="brand-tagline">Digital Experiences, Redefined</p>
+          <p class="brand-copy" id="brand-copy">
+            We craft digital narratives that refuse to be ignored.<br>
+            Every project is a statement. Every pixel, a decision.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene scene--philosophy">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 align-center push-down">
+          <p class="type-philosophy display-font" data-reveal="fade-up">
+            We don't build websites.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene scene--philosophy">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 align-center push-down">
+          <p class="type-philosophy display-font" data-reveal="fade-up">
+            We craft experiences<br>
+            that demand attention.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene scene--philosophy scene--philosophy-last">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 push-down align-center">
+          <p class="type-philosophy display-font" data-reveal="fade-up">
+            Every pixel carries intent.<br>
+            Every interaction tells a story.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══ ACT III — PROOF THROUGH WORK ═══ -->
+
+    <div class="scene scene--work-intro">
+      <div class="scene__grid">
+        <span class="edge-meta">SCENE.03 — PROOF</span>
+        <div class="scene__editorial col-3-11 align-center">
+          <p class="type-intercard" data-reveal="fade-up">Selected work — proof that obsession produces results.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 01 — Centered -->
+    <div class="scene scene--project">
+      <div class="scene__grid project-feature">
+        <div class="project-feature__image col-2-12" data-cursor="view">
+          <img src="/images/braahmand-cafe.png" alt="Braahmand Café" data-parallax-img>
+        </div>
+        <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
+          <span class="project-feature__num">01 / 04</span>
+          <h3 class="project-feature__title type-hero display-font">Braahmand<br>Café</h3>
+          <p class="project-feature__desc">Redefining culinary storytelling through space and light.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 02 — Centered -->
+    <div class="scene scene--project">
+      <div class="scene__grid project-feature">
+        <div class="project-feature__image col-2-12 push-down" data-cursor="view">
+          <img src="/images/nexus-fintech.png" alt="Nexus Fintech" data-parallax-img>
+        </div>
+        <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
+          <span class="project-feature__num">02 / 04</span>
+          <h3 class="project-feature__title type-hero display-font">Nexus<br>Fintech</h3>
+          <p class="project-feature__desc">A brutalist approach to modern finance interfaces.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 03 — Centered -->
+    <div class="scene scene--project">
+      <div class="scene__grid project-feature">
+        <div class="project-feature__image col-2-12" data-cursor="view">
+          <img src="/images/elevate-studios.png" alt="Elevate Studios" data-parallax-img>
+        </div>
+        <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
+          <span class="project-feature__num">03 / 04</span>
+          <h3 class="project-feature__title type-hero display-font">Elevate<br>Studios</h3>
+          <p class="project-feature__desc">A high-contrast digital identity built for a boutique production house.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 04 — Centered -->
+    <div class="scene scene--project">
+      <div class="scene__grid project-feature">
+        <div class="project-feature__image col-2-12 push-down" data-cursor="view">
+          <img src="/images/oasis-realty.png" alt="Oasis Realty" data-parallax-img>
+        </div>
+        <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
+          <span class="project-feature__num">04 / 04</span>
+          <h3 class="project-feature__title type-hero display-font">Oasis<br>Realty</h3>
+          <p class="project-feature__desc">Architectural minimalism meets luxury real estate.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="scene scene--interlude">
+      <div class="scene__grid">
+        <div class="scene__editorial col-3-11 align-center">
+          <p class="type-intercard" data-reveal="fade-up">What our collaborators say.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene scene--testimonials" id="testimonials">
+      <div class="testimonials-wrap">
+        
+        <div class="testimonial">
+          <p class="testimonial__quote display-font">"They stripped away everything unnecessary until only our core truth remained. The result isn't just a website, it's a digital monument."</p>
+          <div class="testimonial__divider"></div>
+          <div class="testimonial__author">
+            <span class="testimonial__name">Elena Rostova</span>
+            <span class="testimonial__role">Founder, Elevate</span>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <p class="testimonial__quote display-font">"We asked for a redesign. They gave us an entirely new visual language. Obsessive attention to detail at every breakpoint."</p>
+          <div class="testimonial__divider"></div>
+          <div class="testimonial__author">
+            <span class="testimonial__name">Marcus Chen</span>
+            <span class="testimonial__role">CTO, Nexus</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ ACT IV — RESOLUTION & CONTACT ═══ -->
+
+    <div class="scene scene--cta">
+      <div class="scene__grid">
+        <span class="edge-meta">SCENE.04 — RESOLUTION</span>
+        <div class="scene__editorial col-3-11 align-center push-down">
+          <h2 class="type-cta display-font" data-reveal="fade-up">
+            Let's create<br>
+            something<br>
+            extraordinary.
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene scene--contact" id="contact">
+      <div class="scene__grid">
+        <div class="col-3-11">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <input type="text" id="name" name="name" required placeholder=" " autocomplete="off">
+              <label for="name">Your Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" required placeholder=" " autocomplete="off">
+              <label for="email">Email Address</label>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" rows="1" required placeholder=" "></textarea>
+              <label for="message">Project Details</label>
+            </div>
+            <button type="submit" class="btn-submit" data-cursor="link">
+              <span class="btn-submit__text">Initiate Request</span>
+              <span class="btn-submit__arrow">→</span>
+            </button>
+            <div class="form-success" id="form-success">
+              <p class="type-mono">[ STATUS: TRANSMISSION RECEIVED ]</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+      <div class="footer-wrap">
+        <div class="footer-brand">
+          <span class="footer-logo display-font" id="footer-logo">AKO</span>
+          <span class="footer-copyright type-mono">© 2026 AKO LABS. ALL RIGHTS RESERVED.</span>
+        </div>
+        <div class="footer-socials">
+          <a href="#" class="type-mono" data-cursor="link">TWITTER</a>
+          <a href="#" class="type-mono" data-cursor="link">INSTAGRAM</a>
+          <a href="#" class="type-mono" data-cursor="link">LINKEDIN</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
