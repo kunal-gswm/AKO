@@ -663,7 +663,7 @@ img {
 
 /* Testimonials */
 .scene--testimonials {
-  background: #1a1208;
+  background: var(--bg);
   padding: clamp(60px, 10vw, 120px) var(--margin-right) clamp(60px, 10vw, 120px) var(--margin-left);
 }
 
