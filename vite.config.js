@@ -6,7 +6,6 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    minify: 'terser',
     cssMinify: true,
   },
 });
