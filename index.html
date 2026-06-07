@@ -177,7 +177,7 @@
         </div>
         <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
           <span class="project-feature__num">01 / 04</span>
-          <h3 class="project-feature__title type-hero display-font">Braahmand<br>Café</h3>
+          <h3 class="project-feature__title type-project display-font">Braahmand<br>Café</h3>
           <p class="project-feature__desc">Redefining culinary storytelling through space and light.</p>
         </div>
       </div>
@@ -191,7 +191,7 @@
         </div>
         <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
           <span class="project-feature__num">02 / 04</span>
-          <h3 class="project-feature__title type-hero display-font">Nexus<br>Fintech</h3>
+          <h3 class="project-feature__title type-project display-font">Nexus<br>Fintech</h3>
           <p class="project-feature__desc">A brutalist approach to modern finance interfaces.</p>
         </div>
       </div>
@@ -205,7 +205,7 @@
         </div>
         <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
           <span class="project-feature__num">03 / 04</span>
-          <h3 class="project-feature__title type-hero display-font">Elevate<br>Studios</h3>
+          <h3 class="project-feature__title type-project display-font">Elevate<br>Studios</h3>
           <p class="project-feature__desc">A high-contrast digital identity built for a boutique production house.</p>
         </div>
       </div>
@@ -219,7 +219,7 @@
         </div>
         <div class="project-feature__info col-3-11 align-center push-down" data-reveal="fade-up">
           <span class="project-feature__num">04 / 04</span>
-          <h3 class="project-feature__title type-hero display-font">Oasis<br>Realty</h3>
+          <h3 class="project-feature__title type-project display-font">Oasis<br>Realty</h3>
           <p class="project-feature__desc">Architectural minimalism meets luxury real estate.</p>
         </div>
       </div>
@@ -277,24 +277,24 @@
       <div class="scene__grid">
         <div class="col-3-11">
           <form class="contact-form" id="contact-form">
-            <div class="form-group">
-              <input type="text" id="name" name="name" required placeholder=" " autocomplete="off">
-              <label for="name">Your Name</label>
+            <div class="form-field">
+              <label class="form-field__label" for="name">Your Name</label>
+              <input class="form-field__input" type="text" id="name" name="name" required placeholder=" " autocomplete="off">
             </div>
-            <div class="form-group">
-              <input type="email" id="email" name="email" required placeholder=" " autocomplete="off">
-              <label for="email">Email Address</label>
+            <div class="form-field">
+              <label class="form-field__label" for="email">Email Address</label>
+              <input class="form-field__input" type="email" id="email" name="email" required placeholder=" " autocomplete="off">
             </div>
-            <div class="form-group">
-              <textarea id="message" name="message" rows="1" required placeholder=" "></textarea>
-              <label for="message">Project Details</label>
+            <div class="form-field">
+              <label class="form-field__label" for="message">Project Details</label>
+              <textarea class="form-field__input form-field__textarea" id="message" name="message" rows="4" required placeholder=" "></textarea>
             </div>
-            <button type="submit" class="btn-submit" data-cursor="link">
-              <span class="btn-submit__text">Initiate Request</span>
-              <span class="btn-submit__arrow">→</span>
+            <button type="submit" class="contact-submit" data-cursor="link">
+              <span class="contact-submit__text">Initiate Request</span>
+              <span class="contact-submit__arrow">→</span>
             </button>
             <div class="form-success" id="form-success">
-              <p class="type-mono">[ STATUS: TRANSMISSION RECEIVED ]</p>
+              <p class="form-success__msg type-mono">[ STATUS: TRANSMISSION RECEIVED ]</p>
             </div>
           </form>
         </div>
@@ -302,16 +302,16 @@
     </div>
 
     <!-- ── Footer ── -->
-    <footer class="footer">
+    <footer class="scene--footer">
       <div class="footer-wrap">
-        <div class="footer-brand">
-          <span class="footer-logo display-font" id="footer-logo">AKO</span>
-          <span class="footer-copyright type-mono">© 2026 AKO LABS. ALL RIGHTS RESERVED.</span>
+        <div>
+          <span class="footer__brand display-font" id="footer-logo">AKO</span>
+          <p class="footer__copyright type-mono">© 2026 AKO LABS. ALL RIGHTS RESERVED.</p>
         </div>
-        <div class="footer-socials">
-          <a href="#" class="type-mono" data-cursor="link">TWITTER</a>
-          <a href="#" class="type-mono" data-cursor="link">INSTAGRAM</a>
-          <a href="#" class="type-mono" data-cursor="link">LINKEDIN</a>
+        <div class="footer__links">
+          <a href="#" class="footer__link type-mono" data-cursor="link">TWITTER</a>
+          <a href="#" class="footer__link type-mono" data-cursor="link">INSTAGRAM</a>
+          <a href="#" class="footer__link type-mono" data-cursor="link">LINKEDIN</a>
         </div>
       </div>
     </footer>

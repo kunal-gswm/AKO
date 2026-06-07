@@ -43,7 +43,7 @@ export function initCursor() {
     el.addEventListener('mouseenter', () => {
       gsap.to(cursorDot, {
         scale: 6,
-        backgroundColor: '#E8E4DC',
+        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#E8E4DC',
         duration: 0.4,
         ease: 'power3.out'
       });
@@ -62,7 +62,7 @@ export function initCursor() {
     el.addEventListener('mouseleave', () => {
       gsap.to(cursorDot, {
         scale: 1,
-        backgroundColor: '#E8E4DC',
+        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#E8E4DC',
         duration: 0.4,
         ease: 'power3.out'
       });

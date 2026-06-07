@@ -24,7 +24,7 @@ export function initColorEngine() {
     bg: '#0a0c12',
     text: '#E8E4DC',
     accent: '#9090C0',
-    muted: '#6070A0'
+    muted: '#7888B8'
   };
 
   // Helper to apply colors from proxy to CSS variables
@@ -47,7 +47,7 @@ export function initColorEngine() {
       gsap.to(currentColors, {
         bg: '#F5F0E8',
         text: '#1a1208',
-        accent: '#B07050',
+        accent: '#9A6045',
         muted: '#7a6a50',
         duration: 1.2,
         ease: 'power2.inOut',
@@ -60,7 +60,7 @@ export function initColorEngine() {
         bg: '#0a0c12',
         text: '#E8E4DC',
         accent: '#9090C0',
-        muted: '#6070A0',
+        muted: '#7888B8',
         duration: 1.2,
         ease: 'power2.inOut',
         onUpdate: applyColors

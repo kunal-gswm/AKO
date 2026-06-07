@@ -12,8 +12,12 @@ import { playSplitReveal } from './split-reveal.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Editorial ease — heavy, deliberate, mechanical
-const EASE = 'power4.out';
+const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const EASE = isReducedMotion ? 'none' : 'power4.out';
+
+const duration = (d) => isReducedMotion ? 0 : d;
+const yOffset = (y) => isReducedMotion ? 0 : y;
+const delay = (d) => isReducedMotion ? 0 : d;
 
 export function initScrollAnimations(splitRevealData, lenis) {
 
@@ -24,12 +28,12 @@ export function initScrollAnimations(splitRevealData, lenis) {
     gsap.fromTo(el,
       {
         opacity: 0,
-        y: 150,
+        y: yOffset(150),
       },
       {
         opacity: 1,
         y: 0,
-        duration: 2.0,
+        duration: duration(2.0),
         ease: EASE,
         scrollTrigger: {
           trigger: el,
@@ -42,13 +46,13 @@ export function initScrollAnimations(splitRevealData, lenis) {
 
   /* ── Brand Reveal (SplitReveal) ── */
   if (splitRevealData && splitRevealData.chars) {
+    const tl = playSplitReveal(splitRevealData.chars);
+
     ScrollTrigger.create({
       trigger: '.scene--reveal',
       start: 'top 65%',
-      once: true,
-      onEnter() {
-        playSplitReveal(splitRevealData.chars);
-      },
+      animation: tl,
+      toggleActions: 'play none none reverse',
     });
   }
 
@@ -61,13 +65,13 @@ export function initScrollAnimations(splitRevealData, lenis) {
     gsap.fromTo(t,
       {
         opacity: 0,
-        y: 100,
+        y: yOffset(100),
       },
       {
         opacity: 1,
         y: 0,
-        duration: 1.5,
-        delay: i * 0.12,
+        duration: duration(1.5),
+        delay: delay(i * 0.12),
         ease: EASE,
         scrollTrigger: {
           trigger: t,
@@ -82,11 +86,11 @@ export function initScrollAnimations(splitRevealData, lenis) {
   const aboutQuote = document.querySelector('.about__quote');
   if (aboutQuote) {
     gsap.fromTo(aboutQuote,
-      { opacity: 0, y: 80 },
+      { opacity: 0, y: yOffset(80) },
       {
         opacity: 1,
         y: 0,
-        duration: 1.8,
+        duration: duration(1.8),
         ease: EASE,
         scrollTrigger: {
           trigger: aboutQuote,
@@ -100,11 +104,11 @@ export function initScrollAnimations(splitRevealData, lenis) {
   const aboutBody = document.querySelector('.about__body');
   if (aboutBody) {
     gsap.fromTo(aboutBody,
-      { opacity: 0, y: 80 },
+      { opacity: 0, y: yOffset(80) },
       {
         opacity: 1,
         y: 0,
-        duration: 1.6,
+        duration: duration(1.6),
         ease: EASE,
         scrollTrigger: {
           trigger: aboutBody,
@@ -121,14 +125,14 @@ export function initScrollAnimations(splitRevealData, lenis) {
     gsap.fromTo(cta,
       {
         opacity: 0,
-        y: 120,
-        scale: 0.96,
+        y: yOffset(120),
+        scale: isReducedMotion ? 1 : 0.96,
       },
       {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 2.0,
+        duration: duration(2.0),
         ease: EASE,
         scrollTrigger: {
           trigger: cta,
@@ -146,12 +150,12 @@ export function initScrollAnimations(splitRevealData, lenis) {
   if (formFields.length) {
     formFields.forEach((field, i) => {
       gsap.fromTo(field,
-        { opacity: 0, y: 60 },
+        { opacity: 0, y: yOffset(60) },
         {
           opacity: 1,
           y: 0,
-          duration: 1.4,
-          delay: i * 0.1,
+          duration: duration(1.4),
+          delay: delay(i * 0.1),
           ease: EASE,
           scrollTrigger: {
             trigger: '.contact-form',
@@ -165,12 +169,12 @@ export function initScrollAnimations(splitRevealData, lenis) {
 
   if (submitBtn) {
     gsap.fromTo(submitBtn,
-      { opacity: 0, y: 40 },
+      { opacity: 0, y: yOffset(40) },
       {
         opacity: 1,
         y: 0,
-        duration: 1.4,
-        delay: 0.35,
+        duration: duration(1.4),
+        delay: delay(0.35),
         ease: EASE,
         scrollTrigger: {
           trigger: '.contact-form',
@@ -185,11 +189,11 @@ export function initScrollAnimations(splitRevealData, lenis) {
   const footerWrap = document.querySelector('.footer-wrap');
   if (footerWrap) {
     gsap.fromTo(footerWrap,
-      { opacity: 0, y: 30 },
+      { opacity: 0, y: yOffset(30) },
       {
         opacity: 1,
         y: 0,
-        duration: 1,
+        duration: duration(1),
         ease: EASE,
         scrollTrigger: {
           trigger: '.scene--footer',
@@ -216,6 +220,8 @@ export function initScrollAnimations(splitRevealData, lenis) {
  * Higher scrub values = more lag = heavier perceived mass.
  */
 export function initParallax() {
+  if (isReducedMotion) return;
+
   const layers = [
     // ── Light mass (text) — barely perceptible depth ──
     {
@@ -287,6 +293,8 @@ export function initParallax() {
  * Adds cinematic inertia by skewing elements slightly during fast scrolling.
  */
 export function initVelocitySkew(lenis) {
+  if (isReducedMotion) return;
+
   const skewElements = document.querySelectorAll('.type-hero, .visual-scene__img');
   
   if (!skewElements.length || !lenis) return;

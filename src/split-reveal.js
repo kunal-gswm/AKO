@@ -58,6 +58,10 @@ export function initSplitReveal() {
 export function playSplitReveal(chars) {
   if (!chars || chars.length === 0) return null;
 
+  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const duration = (d) => isReducedMotion ? 0 : d;
+  const stagger = (s) => isReducedMotion ? 0 : s;
+
   const tl = gsap.timeline();
 
   // 0. Zoom effect through the doors
@@ -67,47 +71,47 @@ export function playSplitReveal(chars) {
   
   if (sceneGrid) {
     // Start the scene pushed back
-    gsap.set(sceneGrid, { scale: 0.8, opacity: 0 });
-    tl.to(sceneGrid, { scale: 1, opacity: 1, duration: 2.4, ease: 'power3.out' }, 0);
+    gsap.set(sceneGrid, { scale: isReducedMotion ? 1 : 0.8, opacity: 0 });
+    tl.to(sceneGrid, { scale: 1, opacity: 1, duration: duration(2.4), ease: 'power3.out' }, 0);
   }
 
   if (leftDoor && rightDoor) {
     // Doors scale up as they open, simulating camera moving forward
-    tl.to([leftDoor, rightDoor], { scale: 1.4, duration: 2.0, ease: 'power3.inOut' }, 0);
-    tl.to(leftDoor, { xPercent: -120, duration: 2.0, ease: 'power3.inOut' }, 0);
-    tl.to(rightDoor, { xPercent: 120, duration: 2.0, ease: 'power3.inOut' }, 0);
+    tl.to([leftDoor, rightDoor], { scale: isReducedMotion ? 1 : 1.4, duration: duration(2.0), ease: 'power3.inOut' }, 0);
+    tl.to(leftDoor, { xPercent: isReducedMotion ? 0 : -120, duration: duration(2.0), ease: 'power3.inOut' }, 0);
+    tl.to(rightDoor, { xPercent: isReducedMotion ? 0 : 120, duration: duration(2.0), ease: 'power3.inOut' }, 0);
   }
 
   // 1. Characters emerge from below
   tl.to(chars, {
     y: '0%',
-    duration: 1.4,
-    stagger: 0.06,
+    duration: duration(1.4),
+    stagger: stagger(0.06),
     ease: 'power4.out',
-  }, leftDoor ? 0.6 : 0);
+  }, leftDoor ? (isReducedMotion ? 0 : 0.6) : 0);
 
   // 2. Underline draws in from center
   tl.to('#brand-underline', {
     width: '100px',
-    duration: 0.9,
+    duration: duration(0.9),
     ease: 'power3.inOut',
-  }, '-=0.5');
+  }, isReducedMotion ? 0 : '-=0.5');
 
   // 3. Tagline fades upward
   tl.to('#brand-tagline', {
     opacity: 1,
     y: 0,
-    duration: 0.9,
+    duration: duration(0.9),
     ease: 'power3.out',
-  }, '-=0.3');
+  }, isReducedMotion ? 0 : '-=0.3');
 
   // 4. Supporting copy appears
   tl.to('#brand-copy', {
     opacity: 1,
     y: 0,
-    duration: 0.9,
+    duration: duration(0.9),
     ease: 'power3.out',
-  }, '-=0.5');
+  }, isReducedMotion ? 0 : '-=0.5');
 
   return tl;
 }

@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Step 2: Initialize Lenis smooth scroll immediately
   // duration 2.4s + exponential deceleration = heavy camera through cinematic environment
+  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const lenis = new Lenis({
     duration: 2.4,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -105,11 +106,12 @@ function initContactForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // Fade out form
     gsap.to(form, {
       opacity: 0,
-      y: -20,
-      duration: 0.7,
+      y: isReducedMotion ? 0 : -20,
+      duration: isReducedMotion ? 0 : 0.7,
       ease: 'power3.out',
       onComplete() {
         form.style.display = 'none';
